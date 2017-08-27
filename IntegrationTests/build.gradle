@@ -1,0 +1,16 @@
+group 'IntegrationTests'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    testCompile 'io.rest-assured:rest-assured:3.0.3'
+    testCompile 'com.google.code.gson:gson:2.2.4'
+}
