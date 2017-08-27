@@ -3,6 +3,9 @@ package com.example.demo.utils;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
+/**
+ * Tests for the NumberConverter.
+ */
 public class NumberConverterTest {
     @Test
     public void testConvertInt() throws Exception {

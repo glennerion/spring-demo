@@ -8,8 +8,16 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
+/**
+ * Base Spring boot application
+ */
 @SpringBootApplication
 public class DemoApplication {
+
+	/**
+	 * The main method to startf this application.
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		SpringApplication.run(DemoApplication.class, args);
 	}

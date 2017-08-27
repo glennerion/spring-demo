@@ -10,23 +10,45 @@ import org.springframework.web.context.request.WebRequest;
 
 import com.example.demo.utils.NumberConverter;
 
-// TODO: javadoc
+/**
+ * Simple REST controller to add two numbers together.
+ */
 @RestController
 public class MathController {
 
-
+    /**
+     * Add two numbers together and return the result.
+     *
+     * @param n1 first number to add
+     * @param n2 second number to add
+     * @return The sum of the two numbers
+     */
     @RequestMapping("/math/add")
     public double addDouble(@RequestParam double n1, @RequestParam double n2) {
         return n1 + n2;
     }
 
+    /**
+     * Post handler for form data n1 and n2 to add two numbers together. Note that if either number is
+     * missing or not a number, then the system will return a 400 Bad Request with an appropriate message.
+     *
+     * Note: Just for fun, you can specify the numbers as hex, octal and binary in addition to standard numbers.
+     *
+     * @param request The request object.
+     * @return The sum of two numbers.
+     */
     @RequestMapping(value = "/math/add", method = { RequestMethod.POST })
     public double addPost(WebRequest request) {
-        String n1 = request.getParameter("n1");
-        String n2 = request.getParameter("n2");
-        return addPost(n1, n2);
+        return addPost(request.getParameter("n1"), request.getParameter("n2"));
     }
 
+    /**
+     * Add two numbers passed in.
+     *
+     * @param n1 First number
+     * @param n2 Second Number
+     * @return the sum of the two numbers.
+     */
     protected double addPost(String n1, String n2) {
         if (StringUtils.isEmpty(n1) || StringUtils.isEmpty(n2)) {
             throw new IllegalArgumentException("You must pass two form parameters with numerical values: n1 and n2");

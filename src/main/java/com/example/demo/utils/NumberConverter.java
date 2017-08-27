@@ -1,7 +1,18 @@
 package com.example.demo.utils;
 
+/**
+ * A class to convert strings to numbers.
+ */
 public class NumberConverter {
 
+    /**
+     * Convert string to a number.
+     *
+     * Note: Just for fun, you can specify the numbers as hex, octal and binary in addition to standard numbers.
+     *
+     * @param number the String to convert
+     * @return the nubmer as a double.
+     */
     public static double convertToDouble(String number) {
         // Accept hex numbers
         if (number.toLowerCase().indexOf("0x") == 0) {

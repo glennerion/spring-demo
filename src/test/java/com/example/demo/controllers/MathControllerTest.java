@@ -3,6 +3,9 @@ package com.example.demo.controllers;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
+/**
+ * Tests for the MathController.
+ */
 public class MathControllerTest {
 
     @Test
