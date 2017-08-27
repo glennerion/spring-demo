@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.context.request.WebRequest;
 
 import com.example.demo.utils.NumberConverter;
 
@@ -23,7 +22,7 @@ public class MathController {
      * @param n2 second number to add
      * @return The sum of the two numbers
      */
-    @RequestMapping("/math/add")
+    @RequestMapping(value = "/math/add", method = { RequestMethod.GET })
     public double addDouble(@RequestParam double n1, @RequestParam double n2) {
         return n1 + n2;
     }
@@ -34,12 +33,13 @@ public class MathController {
      *
      * Note: Just for fun, you can specify the numbers as hex, octal and binary in addition to standard numbers.
      *
-     * @param request The request object.
+     * @param n1 first number to add
+     * @param n2 second number to add
      * @return The sum of two numbers.
      */
     @RequestMapping(value = "/math/add", method = { RequestMethod.POST })
-    public double addPost(WebRequest request) {
-        return addPost(request.getParameter("n1"), request.getParameter("n2"));
+    public double addPost(@RequestParam String n1, @RequestParam String n2) {
+        return addPostedValues(n1, n2);
     }
 
     /**
@@ -49,7 +49,7 @@ public class MathController {
      * @param n2 Second Number
      * @return the sum of the two numbers.
      */
-    protected double addPost(String n1, String n2) {
+    protected double addPostedValues(String n1, String n2) {
         if (StringUtils.isEmpty(n1) || StringUtils.isEmpty(n2)) {
             throw new IllegalArgumentException("You must pass two form parameters with numerical values: n1 and n2");
         }
