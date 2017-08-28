@@ -7,6 +7,8 @@ This project assumes that you have a recent version of docker installed and runn
 ## To run the build and tests
 ./gradlew build
 
+The test results will be in build/test-results/test.
+
 ## To run the application
 java -jar build/libs/spring-demo-1.0.0.jar
 
